@@ -29,7 +29,10 @@ function tampilkan() {
     let harga = dataBarang[i]
     total += harga
     
-    output += "Barang ke-" + (i + 1) + ": Rp " + rupiah(harga) + "<br>"
+    output += "Barang ke-" + (i + 1) + ": Rp " + rupiah(harga)
+   + "<button onclick='hapusindex("
+    + i + ")' class='hapus2'>Hapus</button>"
+    +"<br>"
   }
   
   output += "<hr>Total: Rp" + rupiah(total)
@@ -66,10 +69,8 @@ document.getElementById("hargaedit").value =""
 
 }
 //fungsi untuk menghapus barang berdasarkan nomor barang
-function hapusNomor() {
-  //ubah nomor barang menjadi index array dengan mengurangi 1
-  let index = Number(document.getElementById("nomorHapus").value) - 1
-  
+
+function hapusindex(index) {
     // periksa apakah indrx valid
   if (index >= 0 && index < dataBarang.length) {
   //hapus barang dari array databarang menggunakan splice
@@ -79,5 +80,4 @@ function hapusNomor() {
 } 
 
 tampilkan()
-document.getElementById("nomorHapus").value = ""
 }
