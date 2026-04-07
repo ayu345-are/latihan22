@@ -65,3 +65,19 @@ document.getElementById("nomor").value =""
 document.getElementById("hargaedit").value =""
 
 }
+//fungsi untuk menghapus barang berdasarkan nomor barang
+function hapusNomor() {
+  //ubah nomor barang menjadi index array dengan mengurangi 1
+  let index = Number(document.getElementById("nomorHapus").value) - 1
+  
+    // periksa apakah indrx valid
+  if (index >= 0 && index < dataBarang.length) {
+  //hapus barang dari array databarang menggunakan splice
+  dataBarang.splice(index, 1)
+  } else {
+    alert("Nomor barang tidak valid")
+} 
+
+tampilkan()
+document.getElementById("nomorHapus").value = ""
+}
